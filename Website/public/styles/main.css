@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   color: #333;
 }
 
@@ -19,24 +19,33 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
   padding: 20px 50px;
-  background-color: #eeecec;
-  color: #0f0f0f;
+  background-color: #010928;
+  color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 100;
 }
-
+header .titre {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
 header h1 {
   font-size: 2em;
 }
 
 header nav a {
   margin-left: 20px;
-  color: #0e0d0d;
+  position: relative;
+  left: 330%;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
+  gap: 20px;
 }
 
 header nav a:hover {
@@ -178,4 +187,60 @@ button:hover {
   .hero p {
     font-size: 1em;
   }
+}
+/* =========================
+   7. Navbar (for pages like yoga.html)
+========================= */
+.navbar {
+  background-color: #010928;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff4b2b;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+  color: #ff4b2b;
+}
+
+footer {
+  background-color: #010928;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
 }

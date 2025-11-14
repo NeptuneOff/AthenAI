@@ -9,16 +9,16 @@
 <body>
 
   <!-- Header / Navbar -->
-  <header>
-    <h1>AthenAI Gym</h1>
-    <nav>
-      <a href="#classes">Classes</a>
-      <a href="#trainers">Trainers</a>
-      <a href="#Service">Service</a>
-      <a href="#Log in ">Log in</a>
+<header>
+  <h1 class="titre">Myos</h1>
+  <nav>
+    <a href="#sports">Our Sports</a>
+    <a href="#trainers">Trainers</a>
+    <a href="#service">Service</a>
+    <a href="#login">Log in</a> 
+  </nav>
+</header>
 
-    </nav>
-  </header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -27,19 +27,25 @@
     <button>Join Now</button>
   </section>
 
+  <!-- Pages Section -->  
+
   <!-- Classes Section -->
-  <section id="classes">
-    <h2>Our Classes</h2>
+  <section id="sports">
+    <h2>Our Sports</h2>
     <div class="cards">
-      <div class="card">
-        <img src="styles/images/yoga.jpg" alt="Yoga">
-        <h3>Yoga</h3>
-        <p>Relax and improve flexibility.</p>
+          <div class="card">
+        <a href="pages/yoga.html" class="card-link">
+          <img src="styles/images/yoga.jpg" alt="Yoga">
+          <h3>Yoga</h3>
+          <p>Relax and improve flexibility.</p>
+        </a>
       </div>
       <div class="card">
+        <a href="pages/strenght.html" class="card-link">
         <img src="styles/images/strenght.jpg" alt="Strength">
         <h3>Strength Training</h3>
         <p>Build muscle and endurance.</p>
+        </a>
       </div>
       <div class="card">
         <img src="styles/images/Track.jpg" alt="Track">
@@ -47,10 +53,9 @@
         <p>Burn calories and boost stamina.</p>
       </div>
     </div>
-  </section>
+
 <!-- Sports Section -->
-<section id="sports">
-  <h2>Explore Our Sports</h2>
+  
   <div class="cards">
     <div class="card">
       <img src="styles/images/Football.jpg" alt="Football">
@@ -69,22 +74,80 @@
     </div>
     <div class="card">
       <img src="styles/images/Tenis2.jpg" alt="Tenis">
-      <h3>Tenis</h3>
+      </h3>Tenis</h3>
       <p>Train agility, stamina, and reflexes for better movement.</p>
     </div>
   </div>
 </section>
 
   <!-- Trainers Section -->
-  <section id="trainers">
+   <section id="trainers">
     <h2>Meet Our Trainers</h2>
     <p>Professional coaches to guide your fitness journey.</p>
-  </section>
 
-  <!-- Contact Section -->
+    <div class="cards">
+      <div class="card">
+        <img src="https://picsum.photos/seed/luca/400/300" alt="Luca Martinez">
+        <h3>Luca Martinez</h3>
+        <p>Strength & Conditioning Coach — Specialist en powerlifting et préparation athlétique.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/amelie/400/300" alt="Amélie Dubois">
+        <h3>Amélie Dubois</h3>
+        <p>Yoga & Mobility Instructor — Cours doux, posture et souplesse.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/omar/400/300" alt="Omar Hassan">
+        <h3>Omar Hassan</h3>
+        <p>Cardio & HIIT Trainer — Entraînements haute intensité et endurance.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/maya/400/300" alt="Maya Chen">
+        <h3>Maya Chen</h3>
+        <p>Boxing & Functional Training — Technique, agilité et conditionnement.</p>
+      </div>
+    </div>
+  </section>
+ <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: contact@athenai-gym.com | Phone: 123-456-7890</p>
+    <h2>Contactez-nous</h2>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Coordonnées</h3>
+        <p>Adresse: 12 Rue du Sport, 33300, France</p>
+        <p>Téléphone: <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+        <p>Email: <a href="mailto:contact@athenai-gym.com">contact@athenai-gym.com</a></p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Horaires</h3>
+        <p>Lundi - Samedi: 09:00 - 17:00</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Réseaux & Plan</h3>
+        <p>
+          <a href="#" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="#" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="#" target="_blank" rel="noopener">Twitter</a>
+        </p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=12+Rue+du+Sport+Paris" target="_blank" rel="noopener">Voir sur Google Maps</a></p>
+      </div>
+    </div>
+
+    <form class="contact-form" action="mailto:contact@athenai-gym.com" method="post" enctype="text/plain">
+      <label for="name">Nom</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="4" required></textarea><br>
+      <button type="submit">Envoyer</button>
+    </form>
   </section>
 
 </body>
