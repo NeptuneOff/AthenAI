@@ -1,36 +1,259 @@
-body{
-    background-color: black;
-    height: 100vh;
-    width: 100%;
-    padding: 0;
+/* Variables CSS pour les couleurs */
+:root {
+    --color-primary: #00ff88;
+    --color-text: #ffffff;
+    --color-card-bg: rgba(255, 255, 255, 0.1);
+    --color-dark-bg: #1a1a1a;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-    z-index: 0;
+    padding: 0;
+    color: var(--color-text);
+    background-color: var(--color-dark-bg);
+    overflow: hidden; /* Important pour masquer le débordement de l'animation de fond */
 }
 
-header{
-    width: 100%;
-    height: 15%;
+            .background-slider {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%; /* Le conteneur couvre 100% de la vue */
+                height: 100%;
+                z-index: -1;
+                overflow: hidden; /* Cache les images qui bougent hors du champ */
+              
+            }
+
+            .background-slider img {
+                position: absolute; /* Superpose toutes les images */
+                top: 0;
+                left: 0;
+                width: 100%; 
+                height: 100%;
+                object-fit: cover;
+                filter: grayscale(100%);              
+                /* DOUBLE ANIMATION : Fondu (Superposition) + Défilement (Mouvement constant) */
+                /* Le temps total est 20s. Chaque image est visible 4s (2s de fondu + 2s stable) */
+                animation: imageFade 20s infinite, slideHorizontal 40s infinite linear; 
+            }
+
+            .background-slider img:nth-child(1) { animation-delay: 0s, 0s; }
+            .background-slider img:nth-child(2) { animation-delay: 4s, 8s; } 
+            .background-slider img:nth-child(3) { animation-delay: 8s, 16s; }
+            .background-slider img:nth-child(4) { animation-delay: 12s, 24s; }
+            .background-slider img:nth-child(5) { animation-delay: 16s, 24s; }
+
+
+            /* 1. Animation de FONDU (Superposition) - Basée sur votre @keyframes imageFade */
+            @keyframes imageFade {
+                0% { opacity: 0; }           /* Invisible */
+                10% { opacity: 0.2; }        /* CHANGÉ: Monte à l'opacité désirée de 0.2 (2s de fondu) */
+                30% { opacity: 0.2; }        /* Reste stable */
+                40% { opacity: 0; }          /* Retour à invisible (2s de fondu) */
+                100% { opacity: 0; }
+            }
+
+            /* 2. Animation de DÉFILEMENT (Mouvement) - Ajoutée pour le mouvement constant */
+            /* @keyframes slideHorizontal {
+                0% { transform: translateX(0); } /* Démarre au centre (ou légèrement décalé si vous préférez) */
+                100% { transform: translateX(-10%); } /* Déplace doucement vers la gauche sur 40s */
+                /* Pour défiler vers la droite, utiliser: 0% { transform: translateX(-10%); } 100% { transform: translateX(0); } 
+            } */
+
+/* ------------------------------------- */
+/* CONTENU PRINCIPAL */
+/* ------------------------------------- */
+.main-container {
+    min-height: 100vh;
     display: flex;
-    justify-content:center;
     align-items: center;
+    padding: 50px 100px; /* Espace autour du contenu */
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay sombre pour le contraste */
 }
 
-.navbar{
-    width: 80%;
-    height: 80%;
-    background-color: antiquewhite;
-    border-radius: 999px;
+.left-content {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.right-content {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px; /* Largeur fixe pour les cartes de droite */
+}
+
+/* HEADER & TITRES */
+.header-tag {
+    font-size: 14px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.logo-section {
+    display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-a{
-    background-color: blue;
-    border-radius: 999px;
-    width: 15%;
-    height: 60%;
+.logo-icon {
+    font-size: 30px;
+    margin-right: 10px;
+    /* Utilisation d'un dégradé pour le style du logo MYOS */
+    background: linear-gradient(45deg, #00ff88, #00c7ff, #aa00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.logo-text {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.highlight {
+    /* Simuler le dégradé du mot "sportif et santé" */
+    background: linear-gradient(45deg, #00ff88, #00c7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 400px;
+}
+
+/* BOUTON COMMENCER MAINTENANT */
+.btn-start {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00ff88, #00c7ff);
+    color: var(--color-dark-bg);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    margin-right: 20px;
+}
+
+/* EFFET DE SURVOL DU BOUTON */
+.btn-start:hover {
+    transform: scale(1.05) translateY(-3px); /* Effet d'élévation */
+    box-shadow: 0 10px 20px rgba(0, 255, 136, 0.4);
+}
+
+.btn-start span {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* BOUTON DE MODE */
+.btn-mode {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--color-text);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-mode:hover {
+    background-color: var(--color-card-bg);
+}
+
+/* ------------------------------------- */
+/* CARTES DE DROITE (PHYSIQUE, MENTAL, MÉDICAL) */
+/* ------------------------------------- */
+.feature-card {
+    background: var(--color-card-bg);
+    backdrop-filter: blur(10px); /* Effet de verre dépoli */
+    border-radius: 20px;
+    padding: 20px;
     display: flex;
-    justify-self: center;
-    align-self: center;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* EFFET DE SURVOL DES CARTES */
+.feature-card:hover {
+    transform: scale(1.03) translateY(-3px); /* Effet d'élévation */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-content p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.arrow {
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+/* Couleurs spécifiques pour chaque carte */
+.physique .card-icon { background-color: #ffc107; color: #fff; }
+.mental .card-icon { background-color: #9c27b0; color: #fff; }
+.medical .card-icon { background-color: #f44336; color: #fff; }
+
+/* Pied de page (éléments en bas à gauche) */
+.footer-stats {
+    position: absolute;
+    bottom: 30px;
+    left: 100px;
+    display: flex;
+    gap: 40px;
+}
+
+.stat-item {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 12px;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-top: -5px;
 }
